@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shelby File Vault</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+
+  <div class="container">
+    <div class="logo">
+      <pre class="ascii">
+ ___  _  _  ___  _    ___  _  _
+/ __|| || || __|| |  | _ )\ \/ /
+\__ \| __ || _| | |__| _ \ >  <
+|___/|_||_||___||____|___//_/\_\
+      </pre>
+      <p class="subtitle">> ZERO-KNOWLEDGE ENCRYPTED FILE VAULT_</p>
+      <p class="subtitle2">> SHELBY NETWORK PROTOCOL v1.0</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('upload')">> UPLOAD</button>
+      <button class="tab" onclick="switchTab('download')">> DOWNLOAD</button>
+    </div>
+
+    <!-- UPLOAD TAB -->
+    <div id="upload-tab" class="tab-content">
+      <div class="drop-zone" id="dropZone">
+        <p class="drop-label">[ DRAG & DROP FILE HERE ]</p>
+        <p class="or">--- OR ---</p>
+        <label for="fileInput" class="btn btn-secondary">> SELECT_FILE</label>
+        <input type="file" id="fileInput" hidden />
+        <p id="selectedFile" class="selected-file"></p>
+      </div>
+
+      <div class="password-group">
+        <label>> ENCRYPTION_KEY <span class="dim">(leave blank to auto-generate)</span></label>
+        <input type="password" id="uploadPassword" placeholder="enter passphrase..." />
+      </div>
+
+      <button class="btn btn-primary" onclick="encryptAndUpload()">> ENCRYPT_AND_UPLOAD</button>
+
+      <div id="uploadResult" class="result-box hidden">
+        <h3>> UPLOAD_SUCCESS</h3>
+        <div class="info-row">
+          <span>FILE_ID :</span>
+          <code id="fileId"></code>
+          <button class="copy-btn" onclick="copyText('fileId')">[COPY]</button>
+        </div>
+        <div class="info-row">
+          <span>DECRYPT_KEY :</span>
+          <code id="decryptKey"></code>
+          <button class="copy-btn" onclick="copyText('decryptKey')">[COPY]</button>
+        </div>
+        <p class="warning">> WARNING: SAVE THESE VALUES. RECOVERY IS IMPOSSIBLE.</p>
+      </div>
+    </div>
+
+    <!-- DOWNLOAD TAB -->
+    <div id="download-tab" class="tab-content hidden">
+      <div class="password-group">
+        <label>> FILE_ID</label>
+        <input type="text" id="downloadFileId" placeholder="paste file id..." />
+      </div>
+      <div class="password-group">
+        <label>> DECRYPT_KEY</label>
+        <input type="text" id="downloadKey" placeholder="paste decryption key..." />
+      </div>
+      <button class="btn btn-primary" onclick="downloadAndDecrypt()">> DECRYPT_AND_DOWNLOAD</button>
+
+      <div id="downloadResult" class="result-box hidden">
+        <h3>> DECRYPTION_SUCCESS</h3>
+        <p id="downloadFileName"></p>
+        <button class="btn btn-secondary" id="saveBtn">> SAVE_FILE</button>
+      </div>
+    </div>
+
+    <!-- STATUS -->
+    <div id="status" class="status hidden"></div>
+
+    <footer>
+      <p>> BUILT ON <strong>SHELBY_NETWORK</strong> | AES-256-GCM | CLIENT-SIDE ONLY | BY <a href="https://github.com/Kewe63" target="_blank">github.com/Kewe63</a></p>
+    </footer>
+  </div>
+
+  <script src="matrix.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
