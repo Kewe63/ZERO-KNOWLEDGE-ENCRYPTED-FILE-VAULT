@@ -52,4 +52,8 @@ The `shelbyUpload()` and `shelbyDownload()` functions in `app.js` are ready to b
 
 ---
 
+- https://zero-knowledge-encrypted-file-vault.vercel.app/
+
+---
+
 - Built with ❤️ for the Shelby community.
