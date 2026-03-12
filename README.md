@@ -1,9 +1,9 @@
 # Shelby File Vault
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Discord](https://img.shields.io/discord/1067679499042922596?color=5865F2&label=Discord&logo=discord)](https://discord.com/invite/shelbyserves)
-[![Twitter](https://img.shields.io/twitter/follow/NousResearch?style=social)](https://x.com/shelbyserves)
-[![GitHub Stars](https://img.shields.io/github/stars/NousResearch/hermes-agent?style=social)](https://github.com/shelby)
+[![Discord](https://img.shields.io/discord/1067679499042922596?color=5865F2&label=Discord&logo=discord)](http://discord.gg/shelbyserves)
+[![Twitter](https://img.shields.io/twitter/follow/shelbyserves?style=social)](https://x.com/shelbyserves)
+[![GitHub Stars](https://img.shields.io/github/stars/shelby?style=social)](https://github.com/shelby)
 
 ---
 
