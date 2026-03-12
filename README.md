@@ -42,3 +42,7 @@ The `shelbyUpload()` and `shelbyDownload()` functions in `app.js` are ready to b
 - Encryption happens 100% client-side
 - The server (Shelby) only stores encrypted bytes
 - Without the decryption key, files are unreadable
+
+---
+
+- Built with ❤️ for the Shelby community.
