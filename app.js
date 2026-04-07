@@ -159,11 +159,22 @@ async function shelbyUpload(encryptedBytes, filename) {
               typeArguments: payloadData.typeArguments
           }
       });
-      // Handle standard and non-standard wallet responses
-      txHash = response.hash || (response.result && response.result.hash) || (response.args && response.args.hash);
+      // Extract the transaction hash safely
+      console.log("Raw wallet response:", response);
+      if (typeof response === 'string') {
+          txHash = response;
+      } else if (response) {
+          txHash = response.hash || 
+                   (response.result && response.result.hash) || 
+                   (response.args && response.args.hash) ||
+                   (response.transaction && response.transaction.hash) ||
+                   response.id; // Some wallets use 'id'
+      }
       
       if (!txHash) {
-          throw new Error("Could not find transaction hash in wallet response. Response was: " + JSON.stringify(response));
+          // Log object keys instead of stringifying to prevent infinite recursion/circular structure errors
+          const keys = typeof response === 'object' && response !== null ? Object.keys(response) : typeof response;
+          throw new Error("Could not find transaction hash in wallet response. Keys found: " + keys);
       }
   } else {
       throw new Error("Wallet does not support standard transaction signing.");

@@ -130,7 +130,9 @@ if (connectBtn) {
             console.error("Connection failed:", err);
             // Ignore user cancellation errors
             if (err?.name !== "UserRejectedRequestError") {
-                 alert("> ERROR: Connection failed.\n" + (err.message || JSON.stringify(err)));
+                 let msg = err.message || typeof err === 'string' ? err : "Unknown error. Check console.";
+                 try { if (!err.message && typeof err === 'object') msg = JSON.stringify(err); } catch(e){}
+                 alert("> ERROR: Connection failed.\n" + msg);
             }
             connectBtn.textContent = "> CONNECT_APTOS_WALLET";
         }
