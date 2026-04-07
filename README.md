@@ -1,5 +1,12 @@
 # Shelby File Vault
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Discord](https://img.shields.io/discord/1067679499042922596?color=5865F2&label=Discord&logo=discord)](http://discord.gg/shelbyserves)
+[![Twitter](https://img.shields.io/twitter/follow/shelbyserves?style=social)](https://x.com/shelbyserves)
+[![GitHub Stars](https://img.shields.io/github/stars/shelby?style=social)](https://github.com/shelby)
+
+---
+
 A zero-knowledge encrypted file sharing tool built on Shelby Network.
 
 ## What it does
@@ -42,3 +49,13 @@ The `shelbyUpload()` and `shelbyDownload()` functions in `app.js` are ready to b
 - Encryption happens 100% client-side
 - The server (Shelby) only stores encrypted bytes
 - Without the decryption key, files are unreadable
+
+---
+
+- https://zero-knowledge-encrypted-file-vault.vercel.app/
+
+
+
+---
+
+- Built with ❤️ for the Shelby community.
