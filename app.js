@@ -77,11 +77,23 @@ function generatePassword(len = 32) {
 }
 
 function toBase64(buffer) {
-  return btoa(String.fromCharCode(...new Uint8Array(buffer)));
+  const bytes = new Uint8Array(buffer);
+  const chunk = 8192;
+  let binary = '';
+  for (let i = 0; i < bytes.length; i += chunk) {
+      binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+  }
+  return btoa(binary);
 }
 
 function fromBase64(str) {
-  return Uint8Array.from(atob(str), c => c.charCodeAt(0));
+  const binaryString = atob(str);
+  const len = binaryString.length;
+  const bytes = new Uint8Array(len);
+  for (let i = 0; i < len; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
+  }
+  return bytes;
 }
 
 // ─── Encrypt ─────────────────────────────────────────────────────────────────
