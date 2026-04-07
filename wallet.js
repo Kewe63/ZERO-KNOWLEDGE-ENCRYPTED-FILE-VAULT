@@ -64,13 +64,33 @@ if (connectBtn) {
             
             // In the official Wallet Standard (AIP-62), the connected accounts are 
             // appended to the wallet's 'accounts' array after successful connection.
+            let extractedAddress = null;
             if (aptosWallet.accounts && aptosWallet.accounts.length > 0) {
-                // Read from standard interface
-                accountAddress = aptosWallet.accounts[0].address;
+                extractedAddress = aptosWallet.accounts[0].address;
             } else if (response) {
-                // Fallbacks for older extensions
-                accountAddress = response.address || (response.account && response.account.address);
+                extractedAddress = response.address || (response.account && response.account.address) || (response.args && response.args.address);
             }
+
+            if (extractedAddress && typeof extractedAddress === 'object') {
+                if (extractedAddress.toString && typeof extractedAddress.toString === 'function' && extractedAddress.toString() !== '[object Object]') {
+                    extractedAddress = extractedAddress.toString();
+                } else if (extractedAddress.data || extractedAddress.data === null) {
+                    // Extract Uint8Array from standard format
+                    const dataObj = extractedAddress.data || extractedAddress;
+                    if (dataObj && Object.keys(dataObj).length > 0) {
+                        const keys = Object.keys(dataObj).filter(k => !isNaN(k)).sort((a,b) => Number(a)-Number(b));
+                        let hex = '0x';
+                        for(const k of keys) {
+                            hex += Number(dataObj[k]).toString(16).padStart(2, '0');
+                        }
+                        extractedAddress = hex;
+                    }
+                }
+            } else if (typeof extractedAddress === 'string') {
+                // string is fine
+            }
+            
+            accountAddress = extractedAddress;
             
             if (!accountAddress) {
                 console.log("Full wallet object:", aptosWallet, "Response:", response);
