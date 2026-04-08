@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shelby File Vault</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <canvas id="matrix"></canvas>
 
   <div class="container">
     <div class="logo">
       <pre class="ascii">
- ___  _  _  ___  _    ___  _  _
-/ __|| || || __|| |  | _ )\ \/ /
-\__ \| __ || _| | |__| _ \ \  / 
-|___/|_||_||___||____|___/ |_|
+  ___   _  _   ___   _      ___   __   __
+ / __| | || | | __| | |    | _ )  \ \ / /
+ \__ \ | __ | | _|  | |__  | _ \   \ V / 
+ |___/ |_||_| |___| |____| |___/    |_|  
       </pre>
       <p class="subtitle">> ZERO-KNOWLEDGE ENCRYPTED FILE VAULT_</p>
       <p class="subtitle2">> SHELBY NETWORK PROTOCOL v1.0</p>
     </div>
 
     <!-- WALLET -->
-    <div class="wallet-section" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border: 1px solid #00ff41; padding: 10px; background: rgba(0, 255, 65, 0.05);">
+    <div class="wallet-section"
+      style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border: 1px solid #00ff41; padding: 10px; background: rgba(0, 255, 65, 0.05);">
       <span id="walletAddress" style="font-size: 13px; color: #00cc35;">> NOT_CONNECTED</span>
-      <button id="connectWalletBtn" class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px;">> CONNECT_APTOS_WALLET</button>
+      <button id="connectWalletBtn" class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px;">>
+        CONNECT_APTOS_WALLET</button>
     </div>
 
     <!-- TABS -->
@@ -89,11 +93,13 @@
     <div id="status" class="status hidden"></div>
 
     <footer>
-      <p>> BUILT ON <strong>SHELBY_NETWORK</strong> | AES-256-GCM | CLIENT-SIDE ONLY | BY <a href="https://github.com/Kewe63" target="_blank">github.com/Kewe63</a></p>
+      <p>> BUILT ON <strong>SHELBY_NETWORK</strong> | AES-256-GCM | CLIENT-SIDE ONLY | BY <a
+          href="https://github.com/Kewe63" target="_blank">github.com/Kewe63</a></p>
     </footer>
   </div>
 
   <!-- VITE ENTRY SCRIPT -->
   <script type="module" src="/app.js"></script>
 </body>
+
 </html>
