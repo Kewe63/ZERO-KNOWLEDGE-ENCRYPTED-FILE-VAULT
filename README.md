@@ -6,7 +6,7 @@
 
 A decentralized, zero-knowledge encrypted file sharing tool built on the **Shelby Network** and **Aptos Blockchain**.
 
-Live Demo: [https://zero-knowledge-encrypted-file-vault.vercel.app/](https://zero-knowledge-encrypted-file-vault.vercel.app/)
+Live Demo : [https://zero-knowledge-encrypted-file-vault.vercel.app/](https://zero-knowledge-encrypted-file-vault.vercel.app/)
 
 ---
 
